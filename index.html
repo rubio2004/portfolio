@@ -128,7 +128,7 @@
 
       <ul
         id="mobile-menu"
-        class="hidden absolute top-full left-0 w-full bg-black flex-col items-center text-center shadow-md py-4 text-[.60rem] gap-[1.25rem]  md:flex md:static md:w-auto md:flex-row md:bg-transparent md:shadow-none md:items-center md:justify-end md:text-[.75rem] md:gap-[1.50rem] lg:text-[.75rem] lg:gap-[1.75rem] xl:text-[1rem] xl:gap-[2rem] "
+        class="hidden z-50 absolute top-full left-0 w-full bg-black flex-col items-center text-center shadow-md py-4 text-[.60rem] gap-[1.25rem]  md:flex md:static md:w-auto md:flex-row md:bg-transparent md:shadow-none md:items-center md:justify-end md:text-[.75rem] md:gap-[1.50rem] lg:text-[.75rem] lg:gap-[1.75rem] xl:text-[1rem] xl:gap-[2rem] "
       >
         <li class="text-gray hover:text-darkred"><a href="#techstack">Techstack</a></li>
         <li class="text-gray hover:text-darkred"><a href="#aboutMe">About Me</a></li>
@@ -157,18 +157,18 @@
 
     <!-- Hero Section -->
 
-    <div class="relative mt-[100px]" id="hero">
+    <div class="relative mt-[100px] overflow-hidden w-full" id="hero">
       <img
         src="Assets/photos/mountains.png"
         alt="mountain"
-        class=" w-[300vw] sm:w-[180vw] md:w-[120vw] lg:w-[100vw] max-w-none h-auto relative left-1/2 -translate-x-1/2"
+        class=" w-[100vw] mt-[13rem] md:w-[140vw] md:mt-[0rem] lg:w-full max-w-none h-auto relative left-1/2 -translate-x-1/2"
       />
 
       <div
         class=" absolute inset-0 flex flex-col items-center justify-center text-center text-white gap-1 pb-[250px]"
       >
         <h1
-          class="text-[2rem] sm:text-[2.25rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-bebas text-center leading-none mt-[100px]"
+          class="text-[2.3rem] sm:text-[2.25rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-bebas text-center leading-none mt-[100px]"
         >
           Elevate Your Web Presence<br />— Inspired by the Peaks
         </h1>
@@ -329,7 +329,7 @@
     </div>
 
     <div
-      class="flex justify-center items-center text-center md:text-left lg:text-left xl:text-left pt-[2.5rem] pb-[2.5rem] "
+      class="flex justify-center items-center text-center md:text-left lg:text-left xl:text-left pt-[2.5rem] pb-[2.5rem]"
     >
       <div
         class="flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center items-center gap-[3rem]"
@@ -394,7 +394,7 @@
         </h2>
       </div>
 
-      <div class="swiper  w-full flex justify-center swiper-coverflow" style="overflow: visible;">
+      <div class="swiper  w-full flex justify-center swiper-coverflow scrollAnimate" style="overflow: hidden;">
         <div class="swiper-wrapper">
           <div class="swiper-slide flex justify-center">
             <div
@@ -518,7 +518,7 @@
             <img src="Assets/photos/facebook.png" alt="facebook" class="md:h-[1rem] lg:h-[1.50rem] xl:h-[2rem]" />Emmanuel Rubio
           </p>
           <p class="flex gap-2 pb-2">
-            <img src="/Assets/photos/email.png" alt="email" class="md:h-[1rem] lg:h-[1.50rem] xl:h-[2rem]" />rubioemmanuel11@gmail.com
+            <img src="Assets/photos/email.png" alt="email" class="md:h-[1rem] lg:h-[1.50rem] xl:h-[2rem]" />rubioemmanuel11@gmail.com
           </p>
           <p class="flex gap-2 pb-2">
             <img src="Assets/photos/phone-call.png" alt="number" class="md:h-[1rem] lg:h-[1.50rem] xl:h-[2rem]" />+63 9478177621
