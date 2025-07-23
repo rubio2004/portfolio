@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="path/to/your/flaticon.css" />
+    <title>Personal Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gray: "#808080",
+              darkred: "#8b0000",
+            },
+
+            fontFamily: {
+              bebas: ['"Bebas Neue"', "cursive"],
+              nunito: ["Nunito", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+
+      
+
+      }
+
+      @keyframes appear {
+        from {
+          opacity: 0;
+          scale: 0;
+        }
+        to {
+          opacity: 1;
+          scale: 1;
+        }
+      }
+
+      .scrollAnimate {
+        animation: appear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 50%;
+      }
+
+      .scrolling-wrapper {
+        animation: scroll-left 25s linear infinite;
+      }
+
+      .cardsize {
+        width: 350px;
+        height: 400px;
+      }
+
+      .cardimg {
+        width: 300px;
+        height: 200px;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      .swiper-slide {
+        filter: grayscale(100%) brightness(1) contrast(.8);
+        transition: filter 0.3s ease, transform 0.3s ease;
+      }
+
+      .swiper-slide-active {
+        filter: none;
+      }
+
+
+    </style>
+
+    
+  </head>
+
+  <body class="p-0 m-0 bg-black">
+    <div
+      class="flex items-center justify-between font-bold pt-5 px-[.75rem] text-gray-500 relative"
+    >
+      <div class="flex items-center">
+        <img
+          src="../Assests/photos/logo.png"
+          alt="logo"
+          class="h-10 w-30  md:h-12 md:w-35 lg:h-16 lg:w-45 xl:h-16 xl:w-52"
+        />
+      </div>
+
+      <button
+        id="menu-toggle"
+        class="md:hidden text-[1.5rem] text-darkred focus:outline-none pr-3 pb-[.21rem]"
+      >
+        ☰
+      </button>
+
+      <ul
+        id="mobile-menu"
+        class="hidden absolute top-full left-0 w-full bg-black flex-col items-center text-center shadow-md py-4 text-[.60rem] gap-[1.25rem]  md:flex md:static md:w-auto md:flex-row md:bg-transparent md:shadow-none md:items-center md:justify-end md:text-[.75rem] md:gap-[1.50rem] lg:text-[.75rem] lg:gap-[1.75rem] xl:text-[1rem] xl:gap-[2rem] "
+      >
+        <li class="text-gray hover:text-darkred"><a href="#techstack">Techstack</a></li>
+        <li class="text-gray hover:text-darkred"><a href="#aboutMe">About Me</a></li>
+        <li class="text-gray hover:text-darkred">
+          <a href="#recentProject">Recent Projects</a>
+        </li>
+        <li class="text-gray hover:text-darkred"><a href="#contactMe">Contact Me</a></li>
+        <button
+          class="inline-block text-[0.60rem] sm:text-[0.25rem] md:text-[0.75rem] lg:text-[0.75rem] xl:text-[1rem] bg-darkred text-white px-3 py-2 rounded-full font-bold font-nunito hover:bg-red-600"
+        ><a href="#startNow">
+          Let's Talk Code!
+          </a>
+        </button>
+      </ul>
+    </div>
+
+    <script>
+      const toggleBtn = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+
+      toggleBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("flex");
+      });
+    </script>
+
+    <!-- Hero Section -->
+
+    <div class="relative mt-[100px]" id="hero">
+      <img
+        src="../Assests/photos/mountains.png"
+        alt="mountain"
+        class=" w-[300vw] sm:w-[180vw] md:w-[120vw] lg:w-[100vw] max-w-none h-auto relative left-1/2 -translate-x-1/2"
+      />
+
+      <div
+        class=" absolute inset-0 flex flex-col items-center justify-center text-center text-white gap-1 pb-[250px]"
+      >
+        <h1
+          class="text-[2rem] sm:text-[2.25rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] font-bebas text-center leading-none mt-[100px]"
+        >
+          Elevate Your Web Presence<br />— Inspired by the Peaks
+        </h1>
+        <p
+          class="text-[1rem] sm:text-[1.25rem] md:text-[1.5rem] lg:text-[2rem] xl:text-[2.5rem] font-nunito text-center text-gray italic"
+        >
+          Ready to Start yours?
+        </p>
+        <button
+          class="inline-block text-[.6rem] sm:text-[.75rem] md:text-[1rem] lg:text-[1.25rem] xl:text-[1.75rem] bg-darkred text-white px-2 py-1 sm:px-2 sm:py-1 md:px-2 md:py-1 lg:py-1.5 lg:px-2.5 xl:py-2 xl:px-3 rounded-full font-bold font-nunito hover:bg-red-600 mt-1 sm:mt-1 md:mt-2 lg:mt-3 xl:mt-4"
+        >
+          Let's Talk Code!
+        </button>
+      </div>
+    </div>
+
+    <!-- Techstack -->
+    <div
+      class="flex items-center justify-center pt-[2.5rem] text-[1.50rem] md:text-[3rem] xl:text-[4rem] scrollAnimate" id="techstack"
+    >
+      <h2
+        class="text-gray text-[1rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] pr-[1.25rem]"
+      >
+        ⸻
+      </h2>
+      <h2
+        class="text-darkred text-center font-bebas tracking-[0.50rem] xl:tracking-[0.75rem]"
+      >
+        Tech
+      </h2>
+      <h2
+        class="text-white text-center font-bebas tracking-[.50rem] xl:tracking-[0.75rem]"
+      >
+        stack
+      </h2>
+      <h2
+        class="text-gray text-[1rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] pl-[1.25rem]" 
+      >
+        ⸻
+      </h2>
+    </div>
+
+    <div
+      class="overflow-hidden w-[25rem] md:w-[40rem] lg:w-[64rem] mx-auto pt-[7rem] pb-[6.5rem] scrollAnimate" 
+    >
+      <div class="flex scrolling-wrapper w-[1000%] md:w-[500%] lg:w-[200%] gap-[4rem]">
+        <div class="flex gap-[4rem] w-1/2 items-center justify-around">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/732/732212.png"
+            alt="HTML"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/732/732190.png"
+            alt="CSS"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png"
+            alt="JavaScript"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/6132/6132221.png"
+            alt="C#"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+            alt="Tailwind CSS"
+            class="h-16 w-auto"
+          />
+          <img
+            src="/Assests/photos/nextjs.png"
+            alt="Next.js"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/528/528260.png"
+            alt="MySQL"
+            class="h-16 w-auto"
+          />
+          <img
+            src="/Assests/photos/elysia.png"
+            alt="Elysia.js"
+            class="h-16 w-auto"
+          />
+        </div>
+
+        <div class="flex gap-[4rem] w-1/2 items-center justify-around">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/732/732212.png"
+            alt="HTML"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/732/732190.png"
+            alt="CSS"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png"
+            alt="JavaScript"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/6132/6132221.png"
+            alt="C#"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"
+            alt="Tailwind CSS"
+            class="h-16 w-auto"
+          />
+          <img
+            src="/Assests/photos/nextjs.png"
+            alt="Next.js"
+            class="h-16 w-auto"
+          />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/528/528260.png"
+            alt="MySQL"
+            class="h-16 w-auto"
+          />
+          <img
+            src="/Assests/photos/elysia.png"
+            alt="Elysia.js"
+            class="h-16 w-auto"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex items-center justify-center pt-[2.5rem] text-[1.50rem] md:text-[3rem] xl:text-[4rem] scrollAnimate" id="aboutMe"
+    >
+      <h2
+        class="text-gray text-[1rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] pr-[1.25rem]"
+      >
+        ⸻
+      </h2>
+      <h2
+        class="text-white text-center font-bebas tracking-[0.50rem] xl:tracking-[0.75rem] pr-[1.5rem]"
+      >
+        About
+      </h2>
+      <h2
+        class="text-darkred text-center font-bebas tracking-[.50rem] xl:tracking-[0.75rem]"
+      >
+        Me
+      </h2>
+      <h2
+        class="text-gray text-[1rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] pl-[1.25rem]"
+      >
+        ⸻
+      </h2>
+    </div>
+
+    <div
+      class="flex justify-center items-center text-center md:text-left lg:text-left xl:text-left pt-[2.5rem] pb-[2.5rem] "
+    >
+      <div
+        class="flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center items-center gap-[3rem]"
+      >
+        <div>
+          <img
+            src="/Assests/photos/profiel.jpg"
+            alt="profile"
+            class="w-[15rem] md:w-[16.5rem] lg:w-[18.75rem] xl:w-[20rem] rounded-[1rem] scrollAnimate"
+          />
+        </div>
+
+        <div class="text-white font-nunito gap-[3rem]">
+          <p
+            class="font-bold text-[1rem] md:text-[1.50rem] lg:text-[1.875rem] tracking-[.30rem] lg:tracking-[0.625rem] scrollAnimate"
+          >
+            Hi, I’m Emmanuel
+          </p>
+
+          <p
+            class="text-[.75rem] lg:text-[1.125rem] w-[16rem] md:w-[20rem] lg:w-[26rem] xl:w-[30rem] text-gray tracking-[0.125rem] scrollAnimate"
+          >
+            An aspiring web developer passionate about turning ideas into fast,
+            functional, and user-friendly websites. I craft clean, responsive
+            designs that work beautifully on any device.
+          </p><br>
+
+          <p
+            class="text-[.75rem] lg:text-[1.125rem] w-[16rem] text-gray tracking-[0.125rem] scrollAnimate"
+          >
+            Got an idea? Let’s bring it to life together.
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Projects -->
+    <div class="flex flex-col gap-[2.5rem] " id="recentProject">
+      <div
+        class="flex items-center justify-center pt-[2.5rem] text-[1.50rem] md:text-[3rem] xl:text-[4rem] scrollAnimate"
+      >
+        <h2
+          class="text-gray text-[1rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] pr-[1.25rem]"
+        >
+          ⸻
+        </h2>
+        <h2
+          class="text-darkred text-center font-bebas tracking-[0.50rem] xl:tracking-[0.75rem] pr-[1.5rem]"
+        >
+          Recent
+        </h2>
+        <h2
+          class="text-white text-center font-bebas tracking-[.50rem] xl:tracking-[0.75rem] "
+        >
+          Projects 
+        </h2>
+        <h2
+          class="text-gray text-[1rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] pl-[1.25rem]"
+        >
+          ⸻
+        </h2>
+      </div>
+
+      <div class="swiper  w-full flex justify-center swiper-coverflow" style="overflow: visible;">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide flex justify-center">
+            <div
+              id="container"
+              class="text-white border-[0.0625rem] border-white rounded-[0.625rem] cardsize flex justify-center items-center bg-gradient-to-tr via-red-950 from-black to-darkred scrollAnimate"
+              style="width: 350px; height: 400px;"
+            >
+              <div class="flex flex-col gap-[0.75rem] items-start">
+                <img
+                  src="/Assests/photos/finance app.jpg"
+                  alt="finance app picture"
+                  class="cardimg object-cover rounded-lg"
+                />
+                <div class="flex flex-col pl-[0.3125rem]">
+                  <h3 class="font-bebas text-[1.875rem]">Finance App</h3>
+                  <p class="font-nunito text-[0.875rem] text-gray leading-relaxed">
+                    Lorem, ipsum dolor sit amet consectetur <br />
+                    adipisicing elit. Facere ad, error debitis <br />
+                    voluptates dolorum, quam consequuntur
+                    <br />
+                  </p>
+                </div>
+                <img
+                  src="/Assests/photos/pl finance.png"
+                  alt="programming language"
+                  class="object-contain rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide flex justify-center scrollAnimate">
+            <div
+              id="container"
+              class="text-white border-[0.0625rem] border-white rounded-[0.625rem] cardsize flex justify-center items-center bg-gradient-to-tr via-red-950 from-black to-darkred"
+              style="width: 350px; height: 400px;"
+            >
+              <div class="flex flex-col gap-[0.75rem] items-start">
+                <img
+                  src="/Assests/photos/personal port.jpg"
+                  alt="finance app picture"
+                  class="cardimg object-cover rounded-lg"
+                />
+                <div class="flex flex-col pl-[0.3125rem]">
+                  <h3 class="font-bebas text-[1.875rem]">Personal Portfolio</h3>
+                  <p class="font-nunito text-[0.875rem] text-gray leading-relaxed">
+                    Lorem, ipsum dolor sit amet consectetur <br />
+                    adipisicing elit. Facere ad, error debitis <br />
+                    voluptates dolorum, quam consequuntur
+                    <br />
+                  </p>
+                </div>
+                <img
+                  src="/Assests/photos/pl perso.png"
+                  alt="programming language"
+                  class="object-contain rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide flex justify-center">
+            <div
+              id="container"
+              class="text-white border-[0.0625rem] border-white rounded-[0.625rem] cardsize flex justify-center items-center bg-gradient-to-tr via-red-950 from-black to-darkred scrollAnimate"
+              style="width: 350px; height: 400px;"
+            >
+              <div class="flex flex-col gap-[0.75rem] items-start">
+                <img
+                  src="/Assests/photos/business web.jpg"
+                  alt="finance app picture"
+                  class="cardimg object-cover rounded-lg"
+                />
+                <div class="flex flex-col pl-[0.3125rem]">
+                  <h3 class="font-bebas text-[1.875rem]">Business Web</h3>
+                  <p class="font-nunito text-[0.875rem] text-gray leading-relaxed">
+                    Lorem, ipsum dolor sit amet consectetur <br />
+                    adipisicing elit. Facere ad, error debitis <br />
+                    voluptates dolorum, quam consequuntur
+                    <br />
+                  </p>
+                </div>
+                <img
+                  src="/Assests/photos/pl business.png"
+                  alt="programming language"
+                  class="object-contain rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination "></div>
+      </div>
+
+    <!-- Contact -->
+
+    <div class="h-[21.875rem] " id="contactMe">
+      <div class="flex items-center justify-center pt-[2.5rem] text-[1.50rem] md:text-[3rem] xl:text-[4rem] scrollAnimate">
+        <h2 class="text-gray text-[1rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] pr-[1.25rem]">⸻</h2>
+        <h2 class="text-white text-center font-bebas tracking-[0.50rem] xl:tracking-[0.75rem] pr-[1.5rem]">Contact</h2>
+        <h2 class="text-darkred text-center font-bebas tracking-[.50rem] xl:tracking-[0.75rem]">Me</h2>
+        <h2 class="text-gray text-[1rem] md:text-[2rem] lg:text-[3.5rem] xl:text-[4.5rem] pl-[1.25rem]">⸻</h2>
+      </div>
+
+      <div class="text-gray flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center items-center font-nunito gap-[1.5rem] lg:gap-[3.75rem] tracking-[0.125rem] pt-[2.5rem] md:pt-[3.5rem] lg:pt-[3.125rem]">
+        <div>
+          <img src="/Assests/photos/logo.png" alt="" class="h-12 w-30 md:h-12 md:w-35 lg:h-16 lg:w-45 xl:h-16 xl:w-52 scrollAnimate" />
+        </div>
+        <div>
+          <p class="text-[.75rem] w-[17rem] text-center md:text-[.80rem] md:text-left md:w-[20rem] lg:text-[1rem] lg:w-[25rem] xl:text-[1.25rem] xl:w-[30rem] scrollAnimate">
+            Ready to take your online presence to the next level? Whether you're starting fresh or climbing higher, I’m here to help bring your vision to life —step by step, pixel by pixel.
+          </p>
+        </div>
+
+        <div class="flex md:hidden gap-[5rem] scrollAnimate">
+          <img src="/Assests/photos/facebook.png" alt="facebook" class="hover:scale-125"/>
+          <img src="/Assests/photos/email.png" alt="email" class="hover:scale-125" />
+          <img src="/Assests/photos/phone-call.png" alt="number" class="hover:scale-125" />
+        </div>
+
+        <div class="hidden md:flex md:text-bold md:flex-col md:gap-[.5rem] md:text-[.70rem] lg:text-[1rem] scrollAnimate">
+          <p class="flex gap-2 pb-2">
+            <img src="/Assests/photos/facebook.png" alt="facebook" class="md:h-[1rem] lg:h-[1.50rem] xl:h-[2rem]" />Emmanuel Rubio
+          </p>
+          <p class="flex gap-2 pb-2">
+            <img src="/Assests/photos/email.png" alt="email" class="md:h-[1rem] lg:h-[1.50rem] xl:h-[2rem]" />rubioemmanuel11@gmail.com
+          </p>
+          <p class="flex gap-2 pb-2">
+            <img src="/Assests/photos/phone-call.png" alt="number" class="md:h-[1rem] lg:h-[1.50rem] xl:h-[2rem]" />+63 9478177621
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="h-[3.75rem] flex justify-between items-center px-[.5rem] md:px-[1.75rem] text-white bg-darkred font-bold text-[.5rem] md:text-[.6rem] lg:text-[0.7rem]">
+      <p>© 2025 Emmanuel Rubio. All rights reserved.</p>
+      <ul class="flex gap-[.2rem] lg:gap-[1rem]">
+        <li class="hover:text-black" ><a href="#hero" ></a>Home</li>
+        <li>/</li>
+        <li class="hover:text-black" ><a href="#teckstack"></a>Techstack</li>
+        <li>/</li>
+        <li class="hover:text-black" ><a href="#aboutMe"></a>About Me</li>
+        <li>/</li>
+        <li class="hover:text-black" ><a href="#recentProject"></a>Recent Projects</li>
+        <li>/</li>
+        <li class="hover:text-black" ><a href="#contactMe"></a>Contact Me</li>
+      </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="swiper.js"></script>
+  </body>
+</html>
