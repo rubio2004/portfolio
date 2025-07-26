@@ -26,7 +26,7 @@ function createSwiper() {
             stretch: coverflow.stretch,
             depth: coverflow.depth,
             modifier: coverflow.modifier,
-            slideShadows: true,
+            slideShadows: false,
         },
         on: {
             click(event) {
