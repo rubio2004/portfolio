@@ -40,22 +40,9 @@ function createSwiper() {
     });
 }
 
-
 let swiper = createSwiper();
-let lastBreakpoint = getBreakpoint(window.innerWidth);
-
-function getBreakpoint(width) {
-    if (width < 640) return 'mobile';
-    if (width < 768) return 'small-tablet';
-    if (width < 1024) return 'tablet';
-    return 'desktop';
-}
 
 window.addEventListener('resize', function () {
-    const currentBreakpoint = getBreakpoint(window.innerWidth);
-    if (currentBreakpoint !== lastBreakpoint) {
-        if (swiper && swiper.destroy) swiper.destroy(true, true);
-        swiper = createSwiper();
-        lastBreakpoint = currentBreakpoint;
-    }
+    if (swiper && swiper.destroy) swiper.destroy(true, true);
+    swiper = createSwiper();
 });
